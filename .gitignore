@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+popeye_blur.jpg
+popeye_gray.jpg
+popeye_rgb.jpg

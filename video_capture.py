@@ -1,15 +1,34 @@
 from cv2 import cv2
 
-cap = cv2.VideoCapture(0)
+class Camera:
+    def __init__(self):
+        self.cap = cv2.VideoCapture(0)
+        print("camera warming up")
 
-while(True):
-    ret, frame = cap.read()
-    
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    cv2.imshow('frame', gray)
+    def get_frame(self):
+        ret, frame = self.cap.read()
 
-    if cv2.waitKey(0) & 0XFF == ord('q'):
-        break
+        if ret==True:
+            pass
+        return frame
 
-cap.release()
-cv2.destroyAllWindows()
+    def release_object(self):
+        self.cap.release()
+
+def main():
+    while(True):
+        frame = Camera().get_frame()
+        print(frame)
+        print("Got the frames")
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        cv2.imshow('frame', gray)
+
+        if cv2.waitKey(0) & 0XFF == ord('q'):
+            break
+
+    return()
+
+if __name__ == '__main__':
+    main()
+    Camera().release_object()
+    cv2.destroyAllWindows()
