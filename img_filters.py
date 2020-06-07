@@ -24,3 +24,14 @@ img_blur = cv2.blur(img,(figure_size, figure_size))
 cv2.imwrite('popeye_rgb.jpg', img_rgb)
 cv2.imwrite('popeye_gray.jpg', img_gray)
 cv2.imwrite('popeye_blur.jpg', img_blur)
+
+# Showing the windows
+cv2.imshow('Gray Image', img_gray)
+cv2.imshow('RGB Image', img_rgb)
+cv2.imshow('Blur Image', img_blur)
+
+while(True):
+    if cv2.waitKey(1) & 0XFF == ord('q'):
+        break
+
+cv2.destroyAllWindows()
